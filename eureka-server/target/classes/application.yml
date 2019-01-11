@@ -1,0 +1,25 @@
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    # 表示是否注册自身到eurekaServer(Server为false)
+    registerWithEureka: false
+    # 是否从eureka Server获取其他注册表信息
+    fetchRegistry: false
+    # 设置eureka交互服务器url
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+#是否使用密码登录
+#security:
+#  basic:
+#    enabled: true
+#  user:
+#    name:  user
+#    password: user
+
+
+

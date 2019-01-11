@@ -1,0 +1,11 @@
+server:
+  port: 8762
+spring:
+  application:
+    #    客户端名称
+    name: eureka-client
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
