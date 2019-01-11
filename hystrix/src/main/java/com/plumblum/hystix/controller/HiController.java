@@ -1,4 +1,4 @@
-package com.plumblum.hystix.web;
+package com.plumblum.hystix.controller;
 
 import com.plumblum.hystix.feign.EurekaClientFeign;
 import org.springframework.beans.factory.annotation.Autowired;

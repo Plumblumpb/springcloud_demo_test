@@ -2,6 +2,7 @@ package com.plumblum.hystix.feign;
 
 
 import com.plumblum.hystix.config.FeignConfig;
+import com.plumblum.hystix.hystrix.EurekaClientHystrix;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @Date: 2018/9/28 18:52
  * @Description:
  */
-@FeignClient(value = "eureka-client",configuration = FeignConfig.class)
+@FeignClient(value = "eureka-client",configuration = FeignConfig.class,fallback = EurekaClientHystrix.class)
 public interface EurekaClientFeign {
 
     @GetMapping("/hi")
