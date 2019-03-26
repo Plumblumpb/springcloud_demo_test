@@ -20,22 +20,22 @@ import static org.springframework.cloud.netflix.zuul.filters.support.FilterConst
 public class MyFilter extends ZuulFilter {
 
     private static Logger log = LoggerFactory.getLogger(MyFilter.class);
-
+    //定义filter的类型
     @Override
     public String filterType() {
         return PRE_TYPE;
     }
-
+    //定义filter的执行顺序
     @Override
     public int filterOrder() {
         return 0;
     }
-
+    //定义是否需要执行
     @Override
     public boolean shouldFilter() {
         return true;
     }
-
+    //需要执行的具体操作
     @Override
     public Object run() throws ZuulException {
         RequestContext ctx = RequestContext.getCurrentContext();

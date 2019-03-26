@@ -10,15 +10,19 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
 
 zuul:
+  ignoredServices: '*' #忽略所有未配置的service
   routes:
     hiapi:
       path: /hiapi/**
       serviceId: eureka-client
     #      url: http://localhost:8762  #这样写不会做负载均衡
-    #      serviceId: hiapi-v1
+#    sensitiveHeaders: "*" #发请求是带了 * ，那么 * 不会传递给下游服务
     ribbonapi:
       path: /ribbonapi/**
-      serviceId: eureka-ribbon-client
-    feignapi:
-      path: /feignapi/**
-      serviceId: eureka-feign-client
+      serviceId: ribbon-client
+  #是否开启重试
+  retryable: true
+  #对服务的重试次数
+ribbon:
+  MaxAutoRetries: 2
+
